@@ -16,12 +16,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(payload: JwtPayload) {
     const { email } = payload;
     // const user = '';
-    const user = await this.userService.getUserByEmail(email);
+    var userdata = payload.email
+    
+    return { userId: userdata, username: userdata };
+
+    /* const user = await this.userService.getUserByEmail(email);
 
     if (!user) {
       throw new UnauthorizedException('Invalid token');
     }
 
-    return user;
+    return user; */
   }
 }

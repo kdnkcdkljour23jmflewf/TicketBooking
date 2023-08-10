@@ -10,8 +10,8 @@ export class LoginUserController {
 
   @UseGuards(JwtAuthGuard)
   @Get('updateprofile')
-  async registerUser(@Body() userData: any): Promise<any> {
+  async updateprofile(@Body() userData: any): Promise<any> {
    console.log(55555)
-     
+   console.log(userData)
   }
 }
