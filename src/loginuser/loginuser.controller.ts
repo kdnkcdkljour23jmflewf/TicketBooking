@@ -6,12 +6,12 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('loginuser')
 export class LoginUserController {
-  constructor(private readonly userService: LoginuserService) {}
+  constructor(private readonly loginuserservice: LoginuserService) {}
 
   @UseGuards(JwtAuthGuard)
+  
   @Get('updateprofile')
   async updateprofile(@Body() userData: any): Promise<any> {
-   console.log(55555)
-   console.log(userData)
+    this.loginuserservice.updateprofile(userData)
   }
 }
