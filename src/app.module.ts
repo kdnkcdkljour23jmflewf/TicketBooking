@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Auth } from './auth/auth.entity';
 import { LoginuserModule } from './loginuser/loginuser.module';
+import { MovieticketModule } from './movieticket/movieticket.module';
 
 @Module({ 
   imports: [AuthModule,
@@ -20,7 +21,8 @@ import { LoginuserModule } from './loginuser/loginuser.module';
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Auth]),
-    LoginuserModule],
+    LoginuserModule,
+    MovieticketModule],
   controllers: [AppController],
   providers: [AppService],
 })
