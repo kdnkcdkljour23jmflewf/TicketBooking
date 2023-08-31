@@ -73,4 +73,15 @@ export class AuthService {
     const user = await this.usersRepository.findOne({ where:{email} });   
     return user;
   }
+  async updateUser(id:number,userData: any):Promise<any>{
+    const userupdate = await this.usersRepository.findOne({ where:{id} })
+    console.log('userupdate')
+    // console.log(userData)
+    // console.log(userupdate)
+    userupdate.email = userData.email
+    userupdate.username = userData.email
+    // console.log(userupdate)
+    await this.usersRepository.save(userupdate)
+    return 'success'
+  }
 }
