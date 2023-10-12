@@ -7,6 +7,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Auth } from './auth/auth.entity';
 import { LoginuserModule } from './loginuser/loginuser.module';
 import { MovieticketModule } from './movieticket/movieticket.module';
+import { ConfigModule } from '@nestjs/config';
+import typeorm from './config/typeorm';
+
 
 @Module({ 
   imports: [AuthModule,
@@ -19,6 +22,10 @@ import { MovieticketModule } from './movieticket/movieticket.module';
       database: 'nestjs',
       entities: [Auth],
       synchronize: true,
+    }),
+    ConfigModule.forRoot({
+      isGlobal:true,
+      load:[typeorm],
     }),
     TypeOrmModule.forFeature([Auth]),
     LoginuserModule,
